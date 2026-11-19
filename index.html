@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Descargar EcoRuta</title>
+<style>
+:root{
+  --bg:#f2f6f1; --surface:#ffffff; --ink:#15302a; --muted:#51655f;
+  --line:#d3dfd7; --accent:#1f7a55; --accent-ink:#ffffff; --route:#e08a1e;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0f1b18; --surface:#16261f; --ink:#e7f1ec; --muted:#9fb5ac;
+    --line:#27413a; --accent:#4cc38a; --accent-ink:#0b1a14; --route:#f0a24a;
+    color-scheme: dark;
+  }
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:"Avenir Next","Segoe UI",system-ui,sans-serif;
+  line-height:1.55; -webkit-font-smoothing:antialiased;
+}
+main{max-width:880px; margin:0 auto; padding:56px 24px 72px}
+h1{font-size:clamp(2.4rem,7vw,4rem); line-height:1.05; margin:0 0 14px; letter-spacing:-.02em}
+.lead{font-size:1.15rem; color:var(--muted); max-width:46ch; margin:0 0 28px}
+.route{width:100%; height:auto; display:block; margin:0 0 40px}
+.route .path{stroke:var(--route); stroke-width:4; fill:none; stroke-linecap:round; stroke-dasharray:2 11}
+.route .dot{fill:var(--accent)}
+.route .end{fill:var(--route)}
+.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px}
+.card{
+  background:var(--surface); border:1px solid var(--line); border-radius:14px;
+  padding:26px; display:flex; flex-direction:column; gap:10px;
+}
+.card h2{margin:0; font-size:1.35rem}
+.meta{color:var(--muted); font-size:.95rem; margin:0}
+.btn{
+  margin-top:10px; display:inline-block; text-align:center; text-decoration:none;
+  background:var(--accent); color:var(--accent-ink); font-weight:600;
+  padding:13px 20px; border-radius:10px;
+}
+.btn:hover{filter:brightness(1.08)}
+.btn:focus-visible{outline:3px solid var(--route); outline-offset:3px}
+.note{font-size:.9rem; color:var(--muted); margin:6px 0 0}
+footer{margin-top:40px; color:var(--muted); font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+  <h1>Descarga EcoRuta</h1>
+  <p class="lead">Elige la versión para tu dispositivo e instálala en unos minutos.</p>
+
+  <svg class="route" viewBox="0 0 800 90" role="img" aria-label="Ruta de un punto a otro">
+    <path class="path" d="M20 60 C140 10, 220 85, 350 45 S560 10, 640 50 S740 40, 780 30"/>
+    <circle class="dot" cx="20" cy="60" r="9"/>
+    <circle class="end" cx="780" cy="30" r="9"/>
+  </svg>
+
+  <div class="grid">
+    <section class="card">
+      <h2>Windows</h2>
+      <p class="meta">Versión 1.2.0 · Instalador .exe · 97 MB</p>
+      <a class="btn" href="EcoRuta-Setup-1_2_0.exe" download>Descargar para Windows</a>
+      <p class="note">Si Windows muestra un aviso de SmartScreen, elige «Más información» y luego «Ejecutar de todas formas».</p>
+    </section>
+
+    <section class="card">
+      <h2>Android</h2>
+      <p class="meta">Archivo .apk · 2,5 MB</p>
+      <a class="btn" href="EcoRuta.apk" download>Descargar para Android</a>
+      <p class="note">Al abrir el archivo, Android pedirá permiso para instalar apps de esta fuente. Acéptalo solo si confías en esta página.</p>
+    </section>
+  </div>
+
+  <footer>¿Problemas con la instalación? Vuelve a descargar el archivo e inténtalo de nuevo.</footer>
+</main>
+</body>
+</html>
